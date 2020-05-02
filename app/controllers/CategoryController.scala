@@ -67,21 +67,6 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
 
 
 
-//    val errorFunction = { categoryFor => {
-//      Future.successful(
-//        BadRequest(views.html.categoryadd(categoryFor))
-//      )
-//    }
-//    }
-//
-//    val successFunction = { data: Category =>
-//      CategoryRepo.create(data.category_name).map{_ =>
-//        Redirect(routes.CategoryController.addCategory()).flashing("success" ->"category.created")
-//
-//      }
-//    }
-//    val formValidationResult = categoryForm.bindFromRequest
-//    formValidationResult.fold(errorFunction,successFunction)
   }
 
 
@@ -109,7 +94,7 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
       },
       category=> {
         CategoryRepo.update(category.id, Category(category.id,category.name)).map { _ =>
-          Redirect(routes.CategoryController.updateCategory(category.id)).flashing("success" -> "product updated")
+          Redirect(routes.CategoryController.updateCategory(category.id)).flashing("success" -> "category updated")
         }
       }
     )

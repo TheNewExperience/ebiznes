@@ -9,8 +9,19 @@ GET     /                           controllers.HomeController.index
 GET     /categories                 controllers.CategoryController.getCategories
 GET     /updatecategory/:id         controllers.CategoryController.updateCategory(id:Int)
 POST    /updatecategoryhandle       controllers.CategoryController.updateCategoryHandle
-GET     /delete/:id                 controllers.CategoryController.delete(id:Int)
-GET    /addcategory                controllers.CategoryController.addCategory
+GET     /deletecategory/:id         controllers.CategoryController.delete(id:Int)
+GET     /addcategory                controllers.CategoryController.addCategory
+GET     /category/:id               controllers.CategoryController.getCategory(id:Int)
+
+
+GET     /manufacturer/:id            controllers.ManufacturerController.getManufacturer(id:Int)
+GET     /manufacturers               controllers.ManufacturerController.getManufacturers
+GET     /updatemanufacturers/:id     controllers.ManufacturerController.updateManufacturer(id:Int)
+POST    /updatemanufacturerhandle    controllers.ManufacturerController.updateManufacturerHandle
+GET     /deletemanufacturer/:id      controllers.ManufacturerController.delete(id:Int)
+GET     /addmanufacturer             controllers.ManufacturerController.addManufacturer
+
+
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
