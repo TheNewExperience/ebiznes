@@ -16,7 +16,7 @@ GET     /category/:id               controllers.CategoryController.getCategory(i
 
 GET     /manufacturer/:id            controllers.ManufacturerController.getManufacturer(id:Int)
 GET     /manufacturers               controllers.ManufacturerController.getManufacturers
-GET     /updatemanufacturers/:id     controllers.ManufacturerController.updateManufacturer(id:Int)
+GET     /updatemanufacturer/:id      controllers.ManufacturerController.updateManufacturer(id:Int)
 POST    /updatemanufacturerhandle    controllers.ManufacturerController.updateManufacturerHandle
 GET     /deletemanufacturer/:id      controllers.ManufacturerController.delete(id:Int)
 GET     /addmanufacturer             controllers.ManufacturerController.addManufacturer

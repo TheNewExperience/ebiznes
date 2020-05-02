@@ -48,7 +48,7 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
 
   def delete(id: Int):Action[AnyContent] = Action {
     CategoryRepo.delete(id)
-    Redirect("/products")
+    Redirect("/categories")
   }
 
   def addCategory: Action[AnyContent] = Action.async  {implicit request: MessagesRequest[AnyContent] =>
