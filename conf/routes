@@ -13,6 +13,12 @@ GET     /deletecategory/:id         controllers.CategoryController.delete(id:Int
 GET     /addcategory                controllers.CategoryController.addCategory
 GET     /category/:id               controllers.CategoryController.getCategory(id:Int)
 
+GET     /users                      controllers.UserController.getUsers
+GET     /updateuser/:id             controllers.UserController.updateUser(id:Long)
+POST    /updateuserhandle           controllers.UserController.updateUserHandle
+GET     /deleteuser/:id             controllers.UserController.delete(id:Long)
+GET     /adduser                    controllers.UserController.addUser
+GET     /user/:id                   controllers.UserController.getUser(id:Long)
 
 GET     /manufacturer/:id            controllers.ManufacturerController.getManufacturer(id:Int)
 GET     /manufacturers               controllers.ManufacturerController.getManufacturers

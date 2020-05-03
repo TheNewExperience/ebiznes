@@ -55,7 +55,7 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
     categoryForm.bindFromRequest.fold(
       errorForm=>{
         Future.successful(
-                BadRequest(views.html.categoryadd(categoryForm))
+                BadRequest(views.html.categoryadd(errorForm))
               )
       },
       category => {
@@ -68,10 +68,6 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
 
 
   }
-
-
-
-
 
 
 
