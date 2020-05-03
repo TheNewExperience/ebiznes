@@ -20,6 +20,13 @@ GET     /deleteuser/:id             controllers.UserController.delete(id:Long)
 GET     /adduser                    controllers.UserController.addUser
 GET     /user/:id                   controllers.UserController.getUser(id:Long)
 
+GET     /payments                   controllers.PaymentController.getPayments
+GET     /updatepayment/:id          controllers.PaymentController.updatePayment(id:Int)
+POST    /updatepaymenthandle        controllers.PaymentController.updatePaymentHandle
+GET     /deletepayment/:id          controllers.PaymentController.delete(id:Int)
+GET     /addpayment                 controllers.PaymentController.addPayment
+GET     /payment/:id                controllers.PaymentController.getPayment(id:Int)
+
 GET     /manufacturer/:id            controllers.ManufacturerController.getManufacturer(id:Int)
 GET     /manufacturers               controllers.ManufacturerController.getManufacturers
 GET     /updatemanufacturer/:id      controllers.ManufacturerController.updateManufacturer(id:Int)
