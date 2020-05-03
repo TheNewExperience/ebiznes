@@ -21,6 +21,13 @@ POST    /updatemanufacturerhandle    controllers.ManufacturerController.updateMa
 GET     /deletemanufacturer/:id      controllers.ManufacturerController.delete(id:Int)
 GET     /addmanufacturer             controllers.ManufacturerController.addManufacturer
 
+GET     /product/:id                 controllers.ProductController.getProduct(id:Long)
+GET     /products                    controllers.ProductController.getProducts
+GET     /updateproduct/:id           controllers.ProductController.updateProduct(id:Long)
+POST    /updateproducthandle         controllers.ProductController.updateProductHandle
+GET     /deleteproduct/:id           controllers.ProductController.delete(id:Long)
+GET     /addproduct                  controllers.ProductController.addProduct
+POST    /addproducthandle            controllers.ProductController.addProductHandle
 
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code

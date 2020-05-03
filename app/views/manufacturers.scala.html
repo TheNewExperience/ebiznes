@@ -2,7 +2,7 @@
 
 @for(manufacturer <- manufacturers) {
 
-    <b>@manufacturer.name_manufacturer,@manufacturer.id_manufacturer</b>
+    <b>@manufacturer.name_manufacturer</b>
     <a href="@controllers.routes.ManufacturerController.updateManufacturer(manufacturer.id_manufacturer)">Edit</a>
     <a href="@controllers.routes.ManufacturerController.delete(manufacturer.id_manufacturer)">Delete</a>
     <br>
