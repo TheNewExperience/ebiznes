@@ -9,28 +9,28 @@ import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class ProductRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, categoryRepo: CategoryRepository, manufacturerRepo:ManufacturerRepository)(implicit ec: ExecutionContext) {
- val dbConfig = dbConfigProvider.get[JdbcProfile]
+  protected [models]val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   import dbConfig._
   import profile.api._
 
-  class ProductTable(tag: Tag) extends Table[Product](tag,"product") {
+  protected [models] class ProductTable(tag: Tag) extends Table[Product](tag,"product") {
     def id_product = column[Long]("id_product",O.PrimaryKey,O.AutoInc)
     def product_name = column[String]("product_name")
     def product_description = column[String]("product_description")
     def product_price = column[Double]("price")
     def category = column[Int]("id_category")
-    def category_fk = foreignKey("category_fk",category, catTab)(_.id_category)
+    private def category_fk = foreignKey("category_fk",category, catTab)(_.id_category)
     def manufacturer = column[Int]("id_manufacturer")
-    def manufacturer_fk = foreignKey("product_manufacturer_fk",manufacturer, manuTab)(_.id_manufacturer)
+    private def manufacturer_fk = foreignKey("product_manufacturer_fk",manufacturer, manuTab)(_.id_manufacturer)
     def * = (id_product,product_name,product_description,product_price,category,manufacturer)<>((Product.apply _).tupled,Product.unapply)
   }
   import categoryRepo.CategoryTable
   import manufacturerRepo.ManufacturerTable
 
-   val product = TableQuery[ProductTable]
-   val catTab = TableQuery[CategoryTable]
-   val manuTab = TableQuery[ManufacturerTable]
+  protected [models] val product = TableQuery[ProductTable]
+  private val catTab = TableQuery[CategoryTable]
+  private val manuTab = TableQuery[ManufacturerTable]
 
   def create(name: String, description: String, price: Double, category: Int,manufacturer: Int): Future[Product] = db.run {
     (product.map(p =>(p.product_name,p.product_description,p.product_price,p.category,p.manufacturer))

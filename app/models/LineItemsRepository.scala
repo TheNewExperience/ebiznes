@@ -9,12 +9,12 @@ import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class LineItemsRepository @Inject()(dbConfigProvider: DatabaseConfigProvider,BillRepo:BillRepository, ProductRepo:ProductRepository)(implicit ec: ExecutionContext) {
-  val dbConfig = dbConfigProvider.get[JdbcProfile]
+  protected [models]val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   import dbConfig._
   import profile.api._
 
-  class LineItemsTable(tag: Tag) extends Table[LineItems](tag,"line_items") {
+  protected [models] class LineItemsTable(tag: Tag) extends Table[LineItems](tag,"line_items") {
     def id = column[Long]("id",O.PrimaryKey,O.AutoInc)
     def is_billed = column[Int]("is_billed")
     def unit_price = column[Double]("unit_price")
@@ -22,22 +22,22 @@ class LineItemsRepository @Inject()(dbConfigProvider: DatabaseConfigProvider,Bil
     def item_name = column[String]("item_name")
     def price = column[Double]("price")
     def product_id = column[Long]("product_id")
-    def product_fk = foreignKey("product_id_fk",product_id,productTab)(_.id_product)
+    private def product_fk = foreignKey("product_id_fk",product_id,productTab)(_.id_product)
     def bill_id = column[Long]("bill_id")
-    def bill_fk = foreignKey("payment_id_fk",bill_id, billTab)(_.id_bill)
+    private def bill_fk = foreignKey("payment_id_fk",bill_id, billTab)(_.id_bill)
     def * = (id,is_billed,unit_price,quantity,item_name,price,product_id,bill_id)<>((LineItems.apply _).tupled,LineItems.unapply)
   }
   import ProductRepo.ProductTable
   import BillRepo.BillTable
 
-  val lineItems = TableQuery[LineItemsTable]
-  val productTab = TableQuery[ProductTable]
-  val billTab = TableQuery[BillTable]
+  protected [models] val lineItems = TableQuery[LineItemsTable]
+  private val productTab = TableQuery[ProductTable]
+  private val billTab = TableQuery[BillTable]
 
   def create(is_billed:Int, unit_price: Double, quantity: Int,item_name:String,price: Double,product_id: Long,bill_id:Long): Future[LineItems] = db.run {
     (lineItems.map(l =>(l.is_billed,l.unit_price,l.quantity,l.item_name,l.price,l.product_id,l.bill_id))
       returning( lineItems.map(_.id))
-      into {case((is_billed,unit_price,quantity,item_name,price,product_id,bill_id),id) => Bill(id,is_billed,unit_price,quantity,item_name,price,product_id,bill_id)}
+      into {case((is_billed,unit_price,quantity,item_name,price,product_id,bill_id),id) => LineItems(id,is_billed,unit_price,quantity,item_name,price,product_id,bill_id)}
       )+=(is_billed,unit_price,quantity,item_name,price,product_id,bill_id)
   }
 

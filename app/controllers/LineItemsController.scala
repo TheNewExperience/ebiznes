@@ -39,18 +39,18 @@ class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:Bil
       "price" -> of[Double],
       "product_id" -> longNumber,
       "bill_id" ->longNumber
-    )(UpdateBillForm.apply)(UpdateBillForm.unapply)
+    )(UpdateLineItemsForm.apply)(UpdateLineItemsForm.unapply)
   }
 
   def getLineItems: Action[AnyContent] = Action.async { implicit request =>
     val lineItems = lineItRepo.list()
-    lineItems.map(lines => Ok(views.html.lineItems(lines)))
+    lineItems.map(lines => Ok(views.html.lines(lines)))
   }
 
   def getById(id: Long): Action[AnyContent] = Action.async { implicit request =>
     val line = lineItRepo.getByIdOption(id)
     line.map(line => line match {
-      case Some(l) => Ok(views.html.lineItems(l))
+      case Some(l) => Ok(views.html.line(l))
       case None => Redirect(routes.LineItemsController.getLineItems())
     })
   }
@@ -69,7 +69,7 @@ class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:Bil
     val line = lineItRepo.getById(id)
     line.map(line => {
       val lineForm = updateLineForm.fill(UpdateLineItemsForm(line.id,line.is_billed,line.unit_price,line.quantity,line.item_name,line.price,line.product_id,line.bill_id))
-      Ok(views.html.lineupdate(lineForm, bs, prod))
+      Ok(views.html.lineupdate(lineForm,  prod,bs))
 
     })
   }
@@ -88,7 +88,7 @@ class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:Bil
     updateLineForm.bindFromRequest().fold(
       errorForm => {
         Future.successful(
-          BadRequest(views.html.lineupdate(errorForm, bs,prod))
+          BadRequest(views.html.lineupdate(errorForm,prod,bs))
         )
       },
       line => {
@@ -112,7 +112,7 @@ class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:Bil
 
 
 
-      products.map(prod=>Ok(views.html.lineadd(lineForm, bs, prod)))
+      products.map(prod=>Ok(views.html.lineadd(lineForm, prod,bs)))
 
   }
 
@@ -131,7 +131,7 @@ class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:Bil
     lineForm.bindFromRequest.fold(
       errorForm => {
         Future.successful(
-          BadRequest(views.html.lineadd(errorForm,bs,prod))
+          BadRequest(views.html.lineadd(errorForm,prod,bs))
         )
       },
       line => {
