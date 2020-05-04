@@ -40,7 +40,7 @@ class PaymentController @Inject()(PaymentRepo: PaymentMethodRepository, cc: Mess
       val payment = PaymentRepo.getByIdOption(id)
       payment.map(payment => payment match{
         case Some(pay) =>Ok(views.html.payment(pay))
-        case None => Redirect(routes.PaymentController.getCategories())
+        case None => Redirect(routes.PaymentController.getPayments())
       })
   }
 

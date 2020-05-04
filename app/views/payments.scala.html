@@ -2,7 +2,7 @@
 
 @for(payment <- payments) {
     <b>@payment.name</b>
-    <a href="@controllers.routes.PaymentController.updateCategory(payment.id_payment_method)">Edit</a>
+    <a href="@controllers.routes.PaymentController.updatePayment(payment.id_payment_method)">Edit</a>
     <a href="@controllers.routes.PaymentController.delete(payment.id_payment_method)">Delete</a>
     <br>
 }

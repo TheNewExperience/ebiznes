@@ -1,0 +1,25 @@
+@(line:Form[UpdateLineItemsForm], product: Seq[Product], bill: Seq[Bill])(implicit request: MessagesRequestHeader,flash:Flash)
+
+@import helper._
+@flash.get("success").getOrElse("")
+@form(routes.LineItemsController.updateLineHandle()) {
+    @helper.CSRF.formField
+    @inputText(line("is_billed"))
+    @inputText(line("quantity"))
+
+
+    <select name="product" id="product">
+    @for(ps <- product){
+        <option value="@ps.id_product">@ps.product_name</option>
+    }
+    </select>
+    <select name="bill" id="bill">
+    @for(bl <- bill){
+        <option value="@bl.id_bill">@bl.name</option>
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Add Line"/>
+    </div>
+}

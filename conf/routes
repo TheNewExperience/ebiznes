@@ -42,6 +42,22 @@ GET     /deleteproduct/:id           controllers.ProductController.delete(id:Lon
 GET     /addproduct                  controllers.ProductController.addProduct
 POST    /addproducthandle            controllers.ProductController.addProductHandle
 
+GET     /bill/:id                 controllers.BillController.getBill(id:Long)
+GET     /bills                    controllers.BillController.getBills
+GET     /updatebill/:id           controllers.BillController.updateBill(id:Long)
+POST    /updatebillhandle         controllers.BillController.updateBillHandle
+GET     /deletebill/:id           controllers.BillController.delete(id:Long)
+GET     /addbill                  controllers.BillController.addBill
+POST    /addbillhandle            controllers.BillController.addBillHandle
+
+GET     /line/:id                 controllers.LineItemsController.getById(id: Long)
+GET     /lines                    controllers.LineItemsController.getLineItems
+GET     /updateline/:id           controllers.LineItemsController.updateLine(id:Long)
+POST    /updatelinehandle         controllers.LineItemsController.updateLineHandle
+GET     /deleteline/:id           controllers.LineItemsController.delete(id:Long)
+GET     /addline                  controllers.LineItemsController.addLine
+POST    /addlinehandle            controllers.LineItemsController.addLineHandle
+
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message

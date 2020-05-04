@@ -9,12 +9,12 @@ import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class ProductRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, categoryRepo: CategoryRepository, manufacturerRepo:ManufacturerRepository)(implicit ec: ExecutionContext) {
-  private val dbConfig = dbConfigProvider.get[JdbcProfile]
+ val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   import dbConfig._
   import profile.api._
 
-  private class ProductTable(tag: Tag) extends Table[Product](tag,"product") {
+  class ProductTable(tag: Tag) extends Table[Product](tag,"product") {
     def id_product = column[Long]("id_product",O.PrimaryKey,O.AutoInc)
     def product_name = column[String]("product_name")
     def product_description = column[String]("product_description")
@@ -28,9 +28,9 @@ class ProductRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, cate
   import categoryRepo.CategoryTable
   import manufacturerRepo.ManufacturerTable
 
-  private val product = TableQuery[ProductTable]
-  private val catTab = TableQuery[CategoryTable]
-  private val manuTab = TableQuery[ManufacturerTable]
+   val product = TableQuery[ProductTable]
+   val catTab = TableQuery[CategoryTable]
+   val manuTab = TableQuery[ManufacturerTable]
 
   def create(name: String, description: String, price: Double, category: Int,manufacturer: Int): Future[Product] = db.run {
     (product.map(p =>(p.product_name,p.product_description,p.product_price,p.category,p.manufacturer))
