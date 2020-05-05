@@ -50,6 +50,14 @@ GET     /deletebill/:id           controllers.BillController.delete(id:Long)
 GET     /addbill                  controllers.BillController.addBill
 POST    /addbillhandle            controllers.BillController.addBillHandle
 
+GET     /favorite/:id             controllers.FavoriteController.getFavorite(id:Long)
+GET     /favorites                controllers.FavoriteController.getFavorites
+GET     /updatefavorite/:id       controllers.FavoriteController.updateFavorite(id:Long)
+POST    /updatefavoritehandle     controllers.FavoriteController.updateFavoriteHandle
+GET     /deletefavorite/:id       controllers.FavoriteController.delete(id:Long)
+GET     /addfavorite              controllers.FavoriteController.addFavorite
+POST    /addfavoritehandle        controllers.FavoriteController.addFavoriteHandle
+
 GET     /line/:id                 controllers.LineItemsController.getById(id: Long)
 GET     /lines                    controllers.LineItemsController.getLineItems
 GET     /updateline/:id           controllers.LineItemsController.updateLine(id:Long)
@@ -57,6 +65,14 @@ POST    /updatelinehandle         controllers.LineItemsController.updateLineHand
 GET     /deleteline/:id           controllers.LineItemsController.delete(id:Long)
 GET     /addline                  controllers.LineItemsController.addLine
 POST    /addlinehandle            controllers.LineItemsController.addLineHandle
+
+GET     /box/:id                  controllers.BoxController.getBox(id:Long)
+GET     /boxes                    controllers.BoxController.getBoxes
+GET     /updatebox/:id            controllers.BoxController.updateBox(id:Long)
+POST    /updateboxhandle          controllers.BoxController.updateBoxHandle
+GET     /deletebox/:id            controllers.BoxController.delete(id:Long)
+GET     /addbox                   controllers.BoxController.addBox
+POST    /addboxhandle             controllers.BoxController.addBoxHandle
 
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
