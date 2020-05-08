@@ -1,0 +1,34 @@
+@(box: Form[CreateBoxForm],product: Seq[Product],user: Seq[User],payment: Seq[Payment_method])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.BoxController.addBoxHandle()) {
+    @helper.CSRF.formField
+    @inputText(box("sumOf"))
+    @inputText(box("product_name"))
+    @inputText(box("quantity"))
+    @inputText(box("price"))
+
+    <select name="user" id="user">
+    @for(us <- user){
+        <option value="@us.id_user">@us.email</option>
+    }
+    </select>
+    <select name="product" id="product">
+    @for(product <- product){
+        <option value="@product.id_product">@product.product_name</option>
+    }
+    </select>
+
+    <select name="payment" id="payment">
+    @for(pay <- payment){
+        <option value="@pay.id_payment_method">@pay.name</option>
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Add box"/>
+    </div>
+}

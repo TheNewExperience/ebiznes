@@ -1,0 +1,27 @@
+@(bill:Form[UpdateBillForm], user: Seq[User],payment: Seq[Payment_method])(implicit request: MessagesRequestHeader,flash:Flash)
+
+@import helper._
+@flash.get("success").getOrElse("")
+    @form(routes.BillController.updateBillHandle()) {
+
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@bill("id").value" type=""hidden/>
+    @inputText(bill("name"))
+    @inputText(bill("sum_of"))
+
+
+    <select name="user" id="user">
+    @for(us <- user){
+        <option value="@us.id_user">@us.email</option>
+    }
+    </select>
+    <select name="payment" id="payment">
+    @for(pay <- payment){
+        <option value="@pay.id_payment_method">@pay.name</option>
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Update Bill"/>
+    </div>
+}

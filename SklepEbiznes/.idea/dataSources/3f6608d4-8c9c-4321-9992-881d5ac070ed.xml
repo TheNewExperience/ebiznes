@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="projektEbiznes.sqlite">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.18">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="Box"/>
+    <table id="7" parent="2" name="bills"/>
+    <table id="8" parent="2" name="category"/>
+    <table id="9" parent="2" name="favorites"/>
+    <table id="10" parent="2" name="line_items"/>
+    <table id="11" parent="2" name="manufacturer"/>
+    <table id="12" parent="2" name="payment_methods"/>
+    <table id="13" parent="2" name="product"/>
+    <table id="14" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="15" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <table id="16" parent="2" name="users"/>
+    <column id="17" parent="6" name="box_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="18" parent="6" name="sumOf">
+      <Position>2</Position>
+      <DataType>NUMERIC|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="6" name="product_name">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="6" name="quantity">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="6" name="price">
+      <Position>5</Position>
+      <DataType>NUMERIC|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="6" name="product_id">
+      <Position>6</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="6" name="user_id">
+      <Position>7</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="6" name="payment_id">
+      <Position>8</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="25" parent="6" name="Box_pk">
+      <ColNames>box_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="6" name="payment_id_fk">
+      <ColNames>box_id</ColNames>
+      <RefTableName>payment_methods</RefTableName>
+      <RefKeyName>payment_methods_pk</RefKeyName>
+      <RefColNames>id_payment_method</RefColNames>
+    </foreign-key>
+    <foreign-key id="27" parent="6" name="product_id_fk">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefKeyName>product_pk</RefKeyName>
+      <RefColNames>id_product</RefColNames>
+    </foreign-key>
+    <foreign-key id="28" parent="6" name="user_id_fk">
+      <ColNames>user_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pk</RefKeyName>
+      <RefColNames>id_user</RefColNames>
+    </foreign-key>
+    <column id="29" parent="7" name="id_bill">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="7" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="7" name="sum_of">
+      <Position>3</Position>
+      <DataType>NUMERIC|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="7" name="user_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="33" parent="7" name="created_at">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="7" name="is_open">
+      <Position>6</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="7" name="payment_method_id">
+      <Position>7</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="36" parent="7" name="bills_pk">
+      <ColNames>id_bill</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="7" name="user_id_fk">
+      <ColNames>user_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pk</RefKeyName>
+      <RefColNames>id_user</RefColNames>
+    </foreign-key>
+    <foreign-key id="38" parent="7" name="payment_id_fk">
+      <ColNames>payment_method_id</ColNames>
+      <RefTableName>payment_methods</RefTableName>
+      <RefKeyName>payment_methods_pk</RefKeyName>
+      <RefColNames>id_payment_method</RefColNames>
+    </foreign-key>
+    <column id="39" parent="8" name="id_category">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="8" name="category_name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="41" parent="8" name="category_pk">
+      <ColNames>id_category</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="9" name="id_favorites">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="9" name="product_name">
+      <Position>2</Position>
+      <DataType>Text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="9" name="product_id">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="9" name="user_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="46" parent="9" name="favorites_pk">
+      <ColNames>id_favorites</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="9" name="product_id_fk">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefKeyName>product_pk</RefKeyName>
+      <RefColNames>id_product</RefColNames>
+    </foreign-key>
+    <foreign-key id="48" parent="9" name="user_id_fk">
+      <ColNames>user_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pk</RefKeyName>
+      <RefColNames>id_user</RefColNames>
+    </foreign-key>
+    <column id="49" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="10" name="is_billed">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="10" name="unit_price">
+      <Position>3</Position>
+      <DataType>NUMERIC|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="10" name="quantity">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="10" name="item_name">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="10" name="price">
+      <Position>6</Position>
+      <DataType>NUMERIC|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="10" name="product_id">
+      <Position>7</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="10" name="bill_id">
+      <Position>8</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="57" parent="10" name="line_items_pk">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="58" parent="10" name="product_id_fk">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefKeyName>product_pk</RefKeyName>
+      <RefColNames>id_product</RefColNames>
+    </foreign-key>
+    <foreign-key id="59" parent="10" name="bill_id_fk">
+      <ColNames>bill_id</ColNames>
+      <RefTableName>bills</RefTableName>
+      <RefKeyName>bills_pk</RefKeyName>
+      <RefColNames>id_bill</RefColNames>
+    </foreign-key>
+    <column id="60" parent="11" name="id_manufacturer">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="61" parent="11" name="name_manufacturer">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="62" parent="11" name="manufacturer_pk">
+      <ColNames>id_manufacturer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="12" name="id_payment_method">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="65" parent="12" name="payment_methods_pk">
+      <ColNames>id_payment_method</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="13" name="id_product">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="13" name="product_name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="13" name="product_description">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="13" name="price">
+      <Position>4</Position>
+      <DataType>NUMERIC|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="13" name="id_category">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="13" name="id_manufacturer">
+      <Position>6</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="72" parent="13" name="product_pk">
+      <ColNames>id_product</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="73" parent="13" name="category_fk">
+      <ColNames>id_category</ColNames>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pk</RefKeyName>
+      <RefColNames>id_category</RefColNames>
+    </foreign-key>
+    <foreign-key id="74" parent="13" name="product_manufacturer_id_fk">
+      <ColNames>id_manufacturer</ColNames>
+      <RefTableName>manufacturer</RefTableName>
+      <RefKeyName>manufacturer_pk</RefKeyName>
+      <RefColNames>id_manufacturer</RefColNames>
+    </foreign-key>
+    <column id="75" parent="14" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="76" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="77" parent="14" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="78" parent="14" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="79" parent="14" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="80" parent="15" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="81" parent="15" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="82" parent="16" name="id_user">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="16" name="email">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="16" name="encrypted_password">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="16" name="reset_question">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="16" name="reset_answer">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="16" name="created_at">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="16" name="updated_at">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="16" name="is_admin">
+      <Position>8</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <key id="90" parent="16" name="users_pk">
+      <ColNames>id_user</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

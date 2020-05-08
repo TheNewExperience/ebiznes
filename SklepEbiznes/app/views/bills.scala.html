@@ -1,0 +1,13 @@
+@(bills: Seq[Bill])
+
+@for(bill <- bills) {
+    <b>@bill.name</b>
+    @bill.sumOf
+    @bill.userId
+    @bill.created_at
+    @bill.is_open
+    @bill.payment_method
+    <a href="@controllers.routes.BillController.updateBill(bill.id_bill)">Edit</a>
+    <a href="@controllers.routes.BillController.delete(bill.id_bill)">Delete</a>
+    <br>
+}
