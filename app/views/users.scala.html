@@ -1,8 +1,0 @@
-@(users: Seq[User])
-
-@for(user <- users) {
-    <b>@user.email</b>
-    <a href="@controllers.routes.UserController.updateUser(user.id_user)">Edit</a>
-    <a href="@controllers.routes.UserController.delete(user.id_user)">Delete</a>
-    <br>
-}

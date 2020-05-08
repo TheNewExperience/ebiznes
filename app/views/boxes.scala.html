@@ -1,9 +1,0 @@
-@(boxes: Seq[Box])
-
-@for(box <- boxes) {
-    <b>@box.sumOf</b>
-    @box.user_id
-    <a href="@controllers.routes.BoxController.updateBox(box.id)">Edit</a>
-    <a href="@controllers.routes.BoxController.delete(box.id)">Delete</a>
-    <br>
-}
