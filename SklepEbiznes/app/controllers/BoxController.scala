@@ -1,9 +1,9 @@
 package controllers
 
-import java.util.Calendar
+
 
 import javax.inject.{Inject, Singleton}
-import models.{Box, BoxRepository, PaymentMethodRepository, Payment_method, Product, ProductRepository, User, UserRepository}
+import models.{Box, BoxRepository, PaymentMethodRepository, Payment_method,  User, UserRepository}
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
@@ -15,15 +15,11 @@ import scala.concurrent.{ExecutionContext, Future}
 
 
 @Singleton
-class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductRepository, userRepo:UserRepository,  paymentRepo: PaymentMethodRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
+class BoxController @Inject()(boxRepo: BoxRepository,  userRepo:UserRepository,  paymentRepo: PaymentMethodRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
 
   val boxForm: Form[CreateBoxForm] = Form {
     mapping(
       "sumOf" ->  of[Double],
-      "product_name" -> nonEmptyText,
-      "quantity" -> number,
-      "price" -> of[Double],
-      "product_id" -> longNumber,
       "user_id" -> longNumber,
       "payment_id" -> number,
 
@@ -33,10 +29,6 @@ class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductReposit
     mapping(
       "id" -> longNumber,
       "sumOf" ->  of[Double],
-      "product_name" -> nonEmptyText,
-      "quantity" -> number,
-      "price" -> of[Double],
-      "product_id" -> longNumber,
       "user_id" -> longNumber,
       "payment_id" -> number,
     )(UpdateBoxForm.apply)(UpdateBoxForm.unapply)
@@ -66,15 +58,11 @@ class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductReposit
       case Success(paym) => pay = paym
       case Failure(_) => print("fail")
     }
-    var prod: Seq[Product] = Seq[Product]()
-    val products = productRepo.list().onComplete {
-      case Success(pro) => prod = pro
-      case Failure(_) => print("fail")
-    }
+
     val box = boxRepo.getById(id)
     box.map(box => {
-      val boxForm = updateBoxForm.fill(UpdateBoxForm(box.id,box.sumOf,box.productName,box.quantity,box.price,box.product_id,box.user_id,box.payment_id))
-      Ok(views.html.boxupdate(boxForm, prod,us,pay))
+      val boxForm = updateBoxForm.fill(UpdateBoxForm(box.id,box.sumOf,box.user_id,box.payment_id))
+      Ok(views.html.boxupdate(boxForm, us,pay))
 
     })
   }
@@ -90,19 +78,15 @@ class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductReposit
       case Success(paym) => pay = paym
       case Failure(_) => print("fail")
     }
-    var prod: Seq[Product] = Seq[Product]()
-    val products = productRepo.list().onComplete {
-      case Success(pro) => prod = pro
-      case Failure(_) => print("fail")
-    }
+
     updateBoxForm.bindFromRequest().fold(
       errorForm => {
         Future.successful(
-          BadRequest(views.html.boxupdate(errorForm,prod, us,pay))
+          BadRequest(views.html.boxupdate(errorForm, us,pay))
         )
       },
       box => {
-        boxRepo.update(box.id, Box(box.id,box.sumOf,box.productName,box.quantity,box.price,box.product_id,box.user_id,box.payment_id)).map { _ =>
+        boxRepo.update(box.id, Box(box.id,box.sumOf,box.user_id,box.payment_id)).map { _ =>
           Redirect(routes.BoxController.updateBox(box.id)).flashing("success" -> "box updated")
         }
       }
@@ -116,16 +100,10 @@ class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductReposit
       case Success(users) => us = users
       case Failure(_) => print("fail")
     }
-    var pay: Seq[Payment_method] = Seq[Payment_method]()
-    val payments = paymentRepo.list().onComplete {
-      case Success(paym) => pay = paym
-      case Failure(_) => print("fail")
-    }
 
-    val products = productRepo.list()
+    val payments = paymentRepo.list()
 
-
-      products.map(prod=>Ok(views.html.boxadd(boxForm,prod, us, pay)))
+      payments.map(pay=>Ok(views.html.boxadd(boxForm, us, pay)))
 
   }
 
@@ -140,20 +118,16 @@ class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductReposit
       case Success(paym) => pay = paym
       case Failure(_) => print("fail")
     }
-    var prod: Seq[Product] = Seq[Product]()
-    val products = productRepo.list().onComplete {
-      case Success(pro) => prod = pro
-      case Failure(_) => print("fail")
-    }
+
 
     boxForm.bindFromRequest.fold(
       errorForm => {
         Future.successful(
-          BadRequest(views.html.boxadd(errorForm,prod, us, pay))
+          BadRequest(views.html.boxadd(errorForm,us, pay))
         )
       },
       box => {
-        boxRepo.create(box.sumOf,box.productName,box.quantity,box.price,box.product_id,box.user_id,box.payment_id).map { _ =>
+        boxRepo.create(box.sumOf,box.user_id,box.payment_id).map { _ =>
           Redirect(routes.BoxController.addBox()).flashing("success" -> "box.created")
         }
       }
@@ -167,6 +141,6 @@ class BoxController @Inject()(boxRepo: BoxRepository, productRepo:ProductReposit
 
 }
 
-case class CreateBoxForm( sumOf: Double,productName: String,quantity:Int,price:Double, product_id: Long, user_id:Long, payment_id: Int)
+case class CreateBoxForm( sumOf: Double, user_id:Long, payment_id: Int)
 
-case class UpdateBoxForm(id: Long, sumOf: Double,productName: String,quantity:Int,price:Double, product_id: Long, user_id:Long, payment_id: Int)
+case class UpdateBoxForm(id: Long, sumOf: Double, user_id:Long, payment_id: Int)

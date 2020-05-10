@@ -13,7 +13,9 @@
         <entry key="sklepebiznes">
           <value>
             <ProjectSettingsEntry>
-              <option name="confDir" value="E:\Studia UJ\Ebiznes Ćwiczenia\SklepEbiznes\app" />
+              <option name="sourceDir" value="E:\Studia UJ\Ebiznes Ćwiczenia\SklepEbiznes\app" />
+              <option name="confDir" value="E:\Studia UJ\Ebiznes Ćwiczenia\ebiznes\SklepEbiznes\app" />
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.8.1.jar" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -36,7 +38,7 @@
                   <option value="controllers.Assets.Asset" />
                 </list>
               </option>
-              <option name="uri" value="/E:/Studia%20UJ/Ebiznes%20Ćwiczenia/SklepEbiznes" />
+              <option name="uri" value="/E:/Studia%20UJ/Ebiznes%20Ćwiczenia/ebiznes/SklepEbiznes" />
             </ProjectSettingsEntry>
           </value>
         </entry>

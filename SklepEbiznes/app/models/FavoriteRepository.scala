@@ -16,13 +16,10 @@ class FavoriteRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, Use
 
   protected [models] class FavoriteTable(tag: Tag) extends Table[Favorite](tag,"favorites") {
     def id = column[Long]("id_favorite",O.PrimaryKey,O.AutoInc)
-    def product_name = column[String]("name")
     def user_id = column[Long]("user_id")
     private def user_fk = foreignKey("user_id_fk",user_id, userTab)(_.id_user)
-    def product_id = column[Long]("product_id")
-    private def product_fk = foreignKey("product_id_fk",product_id,prodTab)(_.id_product)
 
-    def * = (id,product_name,product_id,user_id)<>((Favorite.apply _).tupled,Favorite.unapply)
+    def * = (id,user_id)<>((Favorite.apply _).tupled,Favorite.unapply)
   }
   import ProductRepo.ProductTable
   import UserRepo.UserTable
@@ -31,11 +28,11 @@ class FavoriteRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, Use
   private val prodTab = TableQuery[ProductTable]
   private val userTab = TableQuery[UserTable]
 
-  def create(name_product: String, product_id:Long, user_id: Long): Future[Favorite] = db.run {
-    (favorite.map(f =>(f.product_name,f.user_id,f.product_id))
+  def create( user_id: Long): Future[Favorite] = db.run {
+    (favorite.map(f =>(f.user_id))
       returning( favorite.map(_.id))
-      into {case((product_name,user_id,product_id),id) => Favorite(id,product_name,product_id,user_id)}
-      )+=(name_product,product_id,user_id)
+      into {case((user_id),id) => Favorite(id,user_id)}
+      )+=(user_id)
   }
 
 

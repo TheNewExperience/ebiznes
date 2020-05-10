@@ -1,0 +1,30 @@
+@(boxline: Form[CreateBoxLineForm],product: Seq[Product], box: Seq[Box])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.BoxLineController.addBoxLineHandle()) {
+    @helper.CSRF.formField
+    @inputText(boxline("unit_price"))
+    @inputText(boxline("quantity"))
+    @inputText(boxline("SumOfLine"))
+    @inputText(boxline("product_name"))
+
+
+
+    <select name="product" id="product">
+    @for(ps <- product){
+        <option value="@ps.id_product">@ps.product_name</option>
+    }
+    </select>
+    <select name="box" id="box">
+    @for(bx <- box){
+        <option value="@bx.id">@bx.user_id</option>
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Add Box Line"/>
+    </div>
+}

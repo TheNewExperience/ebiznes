@@ -74,6 +74,22 @@ GET     /deletebox/:id            controllers.BoxController.delete(id:Long)
 GET     /addbox                   controllers.BoxController.addBox
 POST    /addboxhandle             controllers.BoxController.addBoxHandle
 
+GET     /boxline/:id                 controllers.BoxLineController.getById(id: Long)
+GET     /boxlines                    controllers.BoxLineController.getBoxLines
+GET     /updateboxline/:id           controllers.BoxLineController.updateBoxLine(id:Long)
+POST    /updateboxlinehandle         controllers.BoxLineController.updateBoxLineHandle
+GET     /deleteboxline/:id           controllers.BoxLineController.delete(id:Long)
+GET     /addboxline                  controllers.BoxLineController.addBoxLine
+POST    /addboxlinehandle            controllers.BoxLineController.addBoxLineHandle
+
+GET     /favline/:id                 controllers.FavoriteLineController.getById(id: Long)
+GET     /favlines                    controllers.FavoriteLineController.getFavLines
+GET     /updatefavline/:id           controllers.FavoriteLineController.updateFavLine(id:Long)
+POST    /updatefavlinehandle         controllers.FavoriteLineController.updateFavLineHandle
+GET     /deletefavline/:id           controllers.FavoriteLineController.delete(id:Long)
+GET     /addfavline                  controllers.FavoriteLineController.addFavLine
+POST    /addfavlinehandle            controllers.FavoriteLineController.addFavLineHandle
+
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message

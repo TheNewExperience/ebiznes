@@ -1,4 +1,4 @@
-@(box:Form[UpdateBoxForm], product: Seq[Product],user: Seq[User],payment: Seq[Payment_method])(implicit request: MessagesRequestHeader,flash:Flash)
+@(box:Form[UpdateBoxForm],user: Seq[User],payment: Seq[Payment_method])(implicit request: MessagesRequestHeader,flash:Flash)
 
 @import helper._
 @flash.get("success").getOrElse("")
@@ -7,10 +7,6 @@
     @helper.CSRF.formField
     <input name="id" id="id" value="@box("id").value" type=""hidden/>
     @inputText(box("sumOf"))
-    @inputText(box("product_name"))
-    @inputText(box("quantity"))
-    @inputText(box("price"))
-
 
 
     <select name="user" id="user">
@@ -18,11 +14,7 @@
         <option value="@us.id_user">@us.email</option>
     }
     </select>
-    <select name="product" id="product">
-    @for(product <- product){
-        <option value="@product.id_product">@product.product_name</option>
-    }
-    </select>
+
 
     <select name="payment" id="payment">
     @for(pay <- payment){

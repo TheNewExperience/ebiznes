@@ -16,8 +16,7 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
 
   val favoriteForm: Form[CreateFavoriteForm] = Form {
     mapping(
-      "product_name" -> nonEmptyText,
-      "product_id" -> longNumber,
+
       "user_id" -> longNumber,
 
 
@@ -26,8 +25,6 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
   val updateFavoriteForm: Form[UpdateFavoriteForm] = Form {
     mapping(
       "id" -> longNumber,
-      "product_name" -> nonEmptyText,
-      "product_id" -> longNumber,
       "user_id" -> longNumber,
     )(UpdateFavoriteForm.apply)(UpdateFavoriteForm.unapply)
   }
@@ -51,16 +48,11 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
       case Success(users) => us = users
       case Failure(_) => print("fail")
     }
-    var prod: Seq[Product] = Seq[Product]()
-    val products = productRepo.list().onComplete {
-      case Success(pro) => prod = pro
-      case Failure(_) => print("fail")
-    }
 
     val favorite = favoriteRepo.getById(id)
     favorite.map(favorite => {
-      val favoriteForm = updateFavoriteForm.fill(UpdateFavoriteForm(favorite.id,favorite.productName,favorite.product_id,favorite.user_id))
-        Ok(views.html.favoriteupdate(favoriteForm, prod,us))
+      val favoriteForm = updateFavoriteForm.fill(UpdateFavoriteForm(favorite.id,favorite.user_id))
+        Ok(views.html.favoriteupdate(favoriteForm, us))
 
     })
   }
@@ -71,19 +63,15 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
       case Success(users) => us = users
       case Failure(_) => print("fail")
     }
-    var prod: Seq[Product] = Seq[Product]()
-    val products = productRepo.list().onComplete {
-      case Success(pro) => prod = pro
-      case Failure(_) => print("fail")
-    }
+
     updateFavoriteForm.bindFromRequest().fold(
       errorForm => {
         Future.successful(
-          BadRequest(views.html.favoriteupdate(errorForm,prod,us))
+          BadRequest(views.html.favoriteupdate(errorForm,us))
         )
       },
       favorite => {
-        favoriteRepo.update(favorite.id, Favorite(favorite.id,favorite.productName,favorite.product_id,favorite.user_id)).map { _ =>
+        favoriteRepo.update(favorite.id, Favorite(favorite.id,favorite.user_id)).map { _ =>
           Redirect(routes.FavoriteController.updateFavorite(favorite.id)).flashing("success" -> "favorite updated")
         }
       }
@@ -92,14 +80,9 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
 
 
   def addFavorite: Action[AnyContent] = Action.async { implicit request: MessagesRequest[AnyContent] =>
-    var us: Seq[User] = Seq[User]()
-    val users = userRepo.list().onComplete {
-      case Success(users) => us = users
-      case Failure(_) => print("fail")
-    }
-    val products = productRepo.list()
 
-      products.map(prod=>Ok(views.html.favoriteadd(favoriteForm,  prod,us)))
+    val users = userRepo.list()
+      users.map(us=>Ok(views.html.favoriteadd(favoriteForm,us)))
 
   }
 
@@ -109,21 +92,16 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
       case Success(users) => us = users
       case Failure(_) => print("fail")
     }
-    var prod: Seq[Product] = Seq[Product]()
-    val products = productRepo.list().onComplete {
-      case Success(pro) => prod = pro
-      case Failure(_) => print("fail")
-    }
 
 
     favoriteForm.bindFromRequest.fold(
       errorForm => {
         Future.successful(
-          BadRequest(views.html.favoriteadd(errorForm, prod,us))
+          BadRequest(views.html.favoriteadd(errorForm,us))
         )
       },
       favorite => {
-        favoriteRepo.create(favorite.productName,favorite.product_id,favorite.user_id).map { _ =>
+        favoriteRepo.create(favorite.user_id).map { _ =>
           Redirect(routes.FavoriteController.addFavorite()).flashing("success" -> "favorite.created")
         }
       }
@@ -137,6 +115,6 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
 
 }
 
-case class CreateFavoriteForm(productName: String, product_id: Long,user_id:Long)
+case class CreateFavoriteForm(user_id:Long)
 
-case class UpdateFavoriteForm(id: Long,productName: String, product_id: Long,user_id:Long)
+case class UpdateFavoriteForm(id: Long,user_id:Long)

@@ -17,31 +17,25 @@ class BoxRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, UserRepo
   protected [models] class BoxTable(tag: Tag) extends Table[Box](tag,"Box") {
     def id = column[Long]("box_id",O.PrimaryKey,O.AutoInc)
     def sumOf = column[Double]("sumOf")
-    def product_name = column[String]("product_name")
-    def quantity = column[Int]("quantity")
-    def price = column[Double]("price")
     def user_id = column[Long]("user_id")
     private def user_fk = foreignKey("user_id_fk",user_id, userTab)(_.id_user)
-    def product_id = column[Long]("product_id")
-    private def product_fk = foreignKey("product_id_fk",product_id,prodTab)(_.id_product)
     def payment_id = column[Int]("payment_method_id")
     private def payment_fk = foreignKey("payment_id_fk",payment_id, payTab)(_.id_payment)
-    def * = (id,sumOf,product_name,quantity, price,product_id,user_id,payment_id)<>((Box.apply _).tupled,Box.unapply)
+    def * = (id,sumOf,user_id,payment_id)<>((Box.apply _).tupled,Box.unapply)
   }
   import ProductRepo.ProductTable
   import UserRepo.UserTable
   import PaymentRepo.PaymentMethodTable
 
   protected [models] val box = TableQuery[BoxTable]
-  private val prodTab = TableQuery[ProductTable]
   private val userTab = TableQuery[UserTable]
   private val payTab = TableQuery[PaymentMethodTable]
 
-  def create(sumOf: Double, product_name: String,quantity: Int, price: Double,product_id: Long, user_id:Long, paymentMehod_id:Int): Future[Box] = db.run {
-    (box.map(bo =>(bo.sumOf,bo.product_name,bo.quantity,bo.price,bo.product_id,bo.user_id,bo.payment_id))
+  def create(sumOf: Double,  user_id:Long, paymentMethod_id:Int): Future[Box] = db.run {
+    (box.map(bo =>(bo.sumOf,bo.user_id,bo.payment_id))
       returning( box.map(_.id))
-      into {case((sumOf,product_name,quantity,price,product_id,user_id,payment_id),id) => Box(id,sumOf,product_name,quantity,price,product_id,user_id,payment_id)}
-      )+=(sumOf,product_name,quantity,price,product_id,user_id,paymentMehod_id)
+      into {case((sumOf,user_id,payment_id),id) => Box(id,sumOf,user_id,payment_id)}
+      )+=(sumOf,user_id,paymentMethod_id)
   }
 
 
