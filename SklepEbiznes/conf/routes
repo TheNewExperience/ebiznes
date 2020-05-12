@@ -90,6 +90,70 @@ GET     /deletefavline/:id           controllers.FavoriteLineController.delete(i
 GET     /addfavline                  controllers.FavoriteLineController.addFavLine
 POST    /addfavlinehandle            controllers.FavoriteLineController.addFavLineHandle
 
+
+
+# JSONS
+
+GET     /categoryjson/:id               controllers.CategoryController.getCategory(id: Int)
+PUT     /updatecategoryjson/:id         controllers.CategoryController.updateCategory(id:Int)
+DELETE  /deletecategoryjson/:id         controllers.CategoryController.updateCategoryJson(id:Int)
+POST    /addcategoryjson                controllers.CategoryController.addCategoryJson()
+GET     /categoriesjson                 controllers.CategoryController.getCategoriesJson()
+
+GET     /productjson/:id               controllers.ProductController.getProductJson(id: Long)
+PUT     /updateproductjson/:id         controllers.ProductController.updateProductJson(id:Long)
+DELETE  /deleteproductjson/:id         controllers.ProductController.deleteProductJson(id:Long)
+POST    /addproductjson                controllers.ProductController.addProductJson()
+GET     /productsjson                  controllers.ProductController.getProductsJson()
+
+GET     /lineitemsjson/:id               controllers.LineItemsController.getLineItemsJson(id: Long)
+PUT     /updatelineitemsjson/:id         controllers.LineItemsController.updateLineItemsJson(id:Long)
+DELETE  /deletelineitemsjson/:id         controllers.LineItemsController.deleteLineItemsJson(id:Long)
+POST    /addlineitemsjson                controllers.LineItemsController.addLineItemsJson()
+GET     /linesitemsjson                  controllers.LineItemsController.getLinesItemsJson()
+
+GET     /favoritelinejson/:id              controllers.FavoriteLineController.getFavoriteLineJson(id: Long)
+PUT     /updatefavoritelinejson/:id        controllers.FavoriteLineController.updateFavoriteLineJson(id:Long)
+DELETE  /deletefavoritelinejson/:id        controllers.FavoriteLineController.deleteFavoriteLineJson(id:Long)
+POST    /addfavoritelinejson               controllers.FavoriteLineController.addFavoriteLineJson()
+GET     /favoritelinejson                  controllers.FavoriteLineController.getFavoriteLinesJson()
+
+GET     /favoritejson/:id              controllers.FavoriteController.getFavoriteJson(id: Long)
+PUT     /updatefavoritejson/:id        controllers.FavoriteController.updateFavoriteJson(id:Long)
+DELETE  /deletefavoritejson/:id        controllers.FavoriteController.deleteFavoriteJson(id:Long)
+POST    /addfavoritejson               controllers.FavoriteController.addFavoriteJson()
+GET     /favoritesjson                  controllers.FavoriteController.getFavoritesJson()
+
+GET     /boxlinejson/:id              controllers.BoxLineController.getBoxLineJson(id: Long)
+PUT     /updateboxlinejson/:id        controllers.BoxLineController.updateBoxLineJson(id:Long)
+DELETE  /deleteboxlinejson/:id        controllers.BoxLineController.deleteBoxLineJson(id:Long)
+POST    /addboxlinejson               controllers.BoxLineController.addBoxLineJson()
+GET     /boxlinesjson                 controllers.BoxLineController.getBoxLinesJson()
+
+GET     /boxjson/:id              controllers.BoxController.getBoxJson(id: Long)
+PUT     /updateboxjson/:id        controllers.BoxController.updateBoxJson(id:Long)
+DELETE  /deleteboxjson/:id        controllers.BoxController.deleteBoxJson(id:Long)
+POST    /addboxjson               controllers.BoxController.addBoxJson()
+GET     /boxesjson                controllers.BoxController.getBoxesJson()
+
+GET     /billjson/:id              controllers.BillController.getBillJson(id: Long)
+PUT     /updatebilljson/:id        controllers.BillController.updateBillJson(id:Long)
+DELETE  /deletebilljson/:id        controllers.BillController.deleteBillJson(id:Long)
+POST    /addbilljson               controllers.BillController.addBillJson()
+GET     /billsjson                 controllers.BillController.getBillsJson()
+
+GET     /manufacturerjson/:id               controllers.ManufacturerController.getManufacturer(id: Int)
+PUT     /updatemanufacturerjson/:id         controllers.ManufacturerController.updateManufacturer(id:Int)
+DELETE  /deletemanufacturerjson/:id         controllers.ManufacturerController.updateManufacturerJson(id:Int)
+POST    /addmanufacturerjson                controllers.ManufacturerController.addManufacturerJson()
+GET     /manufacturersjson                  controllers.ManufacturerController.getManufacturersJson()
+
+GET     /userjson/:id               controllers.UserController.getUserJson(id: Long)
+PUT     /updateuserjson/:id         controllers.UserController.updateUserJson(id:Long)
+DELETE  /deleteuserjson/:id         controllers.UserController.deleteUserJson(id:Long)
+POST    /adduserjson                controllers.UserController.addUserJson()
+GET     /usersjson                  controllers.UserController.getUsersJson()
+
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message

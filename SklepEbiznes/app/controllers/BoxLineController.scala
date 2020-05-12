@@ -7,7 +7,7 @@ import play.api.data.Forms._
 import play.api.mvc._
 import play.api.data.format.Formats._
 import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
-
+import play.api.libs.json._
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -141,6 +141,63 @@ class BoxLineController @Inject()(boxLineRepo:BoxLineRepository, productRepo:Pro
     boxLineRepo.delete(id)
     Redirect("/boxlines")
   }
+
+
+  //JSONS
+
+  def getBoxLinesJson() = Action.async{implicit request  =>
+    val boxLines = boxLineRepo.list()
+    boxLines.map(boxL => Ok(Json.toJson(boxL.toArray)))
+  }
+
+
+  def getBoxLineJson(id: Long) = Action.async({ implicit  request =>
+    val boxLine = boxLineRepo.getById(id)
+    boxLine.map(boxL => Ok(Json.toJson(boxL)))
+
+  })
+
+
+  def addBoxLineJson() = Action.async { implicit  request =>
+    boxLineForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      boxL => {
+        boxLineRepo.create(boxL.unit_price,boxL.quantity,boxL.SumOfLine,boxL.product_name,boxL.product_id,boxL.box_id).map { product =>
+          Ok(Json.toJson(product))
+        }
+      }
+    )
+
+  }
+
+  def updateBoxLineJson(id: Long) = Action.async { implicit  request =>
+
+    updateBoxLineForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      boxL => {
+        boxLineRepo.update(id, BoxLine(id, boxL.unit_price,boxL.quantity,boxL.SumOfLine,boxL.product_name,boxL.product_id,boxL.box_id)).map { _ =>
+          Ok(Json.toJson(BoxLine(id, boxL.unit_price,boxL.quantity,boxL.SumOfLine,boxL.product_name,boxL.product_id,boxL.box_id)))
+        }
+      }
+    )
+  }
+
+  def deleteBoxLineJson(id:Long) = Action { implicit  request =>
+
+    boxLineRepo.delete(id)
+    Ok("Deleted product.")
+  }
+
+
+
 
 }
 

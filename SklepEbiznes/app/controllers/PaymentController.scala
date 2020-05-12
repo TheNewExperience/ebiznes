@@ -6,7 +6,7 @@ import models.{Payment_method, PaymentMethodRepository}
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
-
+import play.api.libs.json._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success}
 
@@ -92,6 +92,60 @@ class PaymentController @Inject()(PaymentRepo: PaymentMethodRepository, cc: Mess
         }
       }
     )
+  }
+
+
+  //JSONS
+
+  def getPaymentJson() = Action.async{implicit request  =>
+    val payments = PaymentRepo.list()
+    payments.map(paym => Ok(Json.toJson(paym.toArray)))
+  }
+
+
+  def getPaymentJson(id: Int) = Action.async({ implicit  request =>
+    val payments = PaymentRepo.getById(id)
+    payments.map(paym => Ok(Json.toJson(paym)))
+
+  })
+
+
+  def addPaymentJson() = Action.async { implicit  request =>
+    paymentForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      payment => {
+        PaymentRepo.create(payment.name).map { paym =>
+          Ok(Json.toJson(paym))
+        }
+      }
+    )
+
+  }
+
+  def updatePaymentJson(id: Int) = Action.async { implicit  request =>
+
+    updatePaymentForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      payment => {
+        PaymentRepo.update(id, Payment_method(id, payment.name)).map { _ =>
+          Ok(Json.toJson(Payment_method(id, payment.name)))
+        }
+      }
+    )
+  }
+
+  def deletePaymentJson(id:Int) = Action { implicit  request =>
+
+    PaymentRepo.delete(id)
+    Ok("Deleted product.")
   }
 
 

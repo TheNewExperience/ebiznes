@@ -6,7 +6,7 @@ import models.{Manufacturer, ManufacturerRepository}
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
-
+import play.api.libs.json._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success}
 
@@ -92,7 +92,57 @@ class ManufacturerController @Inject()(ManufacturerRepo: ManufacturerRepository,
     )
   }
 
+  //Json
+  def getManufacturersJson() = Action.async{implicit request  =>
+    val manufacturers = ManufacturerRepo.list()
+    manufacturers.map(manuf => Ok(Json.toJson(manuf.toArray)))
+  }
 
+
+  def getManufacturerJson(id: Int) = Action.async({ implicit  request =>
+    val manufaturer = ManufacturerRepo.getById(id)
+    manufaturer.map(manuf => Ok(Json.toJson(manuf)))
+
+  })
+
+
+  def addManufacturerJson() = Action.async { implicit  request =>
+    manufacturerForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      manufacturer => {
+        ManufacturerRepo.create(manufacturer.name).map { manuf =>
+          Ok(Json.toJson(manuf))
+        }
+      }
+    )
+
+  }
+
+  def updateManufacturerJson(id: Int) = Action.async { implicit  request =>
+
+    updateManufacturerForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      manufacturer => {
+        ManufacturerRepo.update(id, Manufacturer(id, manufacturer.name)).map { _ =>
+          Ok(Json.toJson(Manufacturer(id,manufacturer.name)))
+        }
+      }
+    )
+  }
+
+  def deleteManufacturerJson(id:Int) = Action { implicit  request =>
+
+    ManufacturerRepo.delete(id)
+    Ok("Deleted product.")
+  }
 
 }
 case class CreateManufacturerForm(name:String)
