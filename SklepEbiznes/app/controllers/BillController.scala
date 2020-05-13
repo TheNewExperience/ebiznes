@@ -12,7 +12,7 @@ import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
 
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
-
+import play.api.libs.json._
 
 @Singleton
 class BillController @Inject()(userRepo: UserRepository, billRepo: BillRepository, paymentRepo: PaymentMethodRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
@@ -142,6 +142,59 @@ class BillController @Inject()(userRepo: UserRepository, billRepo: BillRepositor
     Redirect("/bills")
   }
 
+
+  //JSONS
+
+  def getBillsJson() = Action.async{implicit request  =>
+    val bills = billRepo.list()
+    bills.map(bill => Ok(Json.toJson(bill.toArray)))
+  }
+
+
+  def getBillJson(id: Long) = Action.async({ implicit  request =>
+    val bill = billRepo.getById(id)
+    bill.map(bill => Ok(Json.toJson(bill)))
+
+  })
+
+
+  def addBillJson() = Action.async { implicit  request =>
+    billForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      bill => {
+        billRepo.create(bill.name,bill.sumOf,bill.userId,bill.created_at,bill.is_open,bill.payment_method).map { bill =>
+          Ok(Json.toJson(bill))
+        }
+      }
+    )
+
+  }
+
+  def updateBillJson(id: Long) = Action.async { implicit  request =>
+
+    updateBillForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      bill => {
+        billRepo.update(id, Bill(id, bill.name,bill.sumOf,bill.userId,bill.created_at,bill.is_open,bill.payment_method)).map { _ =>
+          Ok(Json.toJson(Bill(id, bill.name,bill.sumOf,bill.userId,bill.created_at,bill.is_open,bill.payment_method)))
+        }
+      }
+    )
+  }
+
+  def deleteBillJson(id:Long) = Action { implicit  request =>
+
+    billRepo.delete(id)
+    Ok("Deleted product.")
+  }
 }
 
 case class CreateBillForm(name: String, sumOf: Double, userId: Long, created_at: String, is_open: Int, payment_method: Int)

@@ -9,7 +9,7 @@ import play.api.data.Forms._
 import play.api.mvc._
 import play.api.data.format.Formats._
 import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
-
+import play.api.libs.json._
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -137,6 +137,60 @@ class BoxController @Inject()(boxRepo: BoxRepository,  userRepo:UserRepository, 
   def delete(id: Long): Action[AnyContent] = Action {
     boxRepo.delete(id)
     Redirect("/boxes")
+  }
+
+
+  //JSONS
+
+  def getBoxesJson() = Action.async{implicit request  =>
+    val boxes = boxRepo.list()
+    boxes.map(bo => Ok(Json.toJson(bo.toArray)))
+  }
+
+
+  def getBoxJson(id: Long) = Action.async({ implicit  request =>
+    val box = boxRepo.getById(id)
+    box.map(bo => Ok(Json.toJson(bo)))
+
+  })
+
+
+  def addBoxJson() = Action.async { implicit  request =>
+    boxForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      box => {
+        boxRepo.create(box.sumOf,box.user_id,box.payment_id).map { bo =>
+          Ok(Json.toJson(bo))
+        }
+      }
+    )
+
+  }
+
+  def updateBoxJson(id: Long) = Action.async { implicit  request =>
+
+    updateBoxForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      box => {
+        boxRepo.update(id, Box(id, box.sumOf,box.user_id,box.payment_id)).map { _ =>
+          Ok(Json.toJson(Box(id, box.sumOf,box.user_id,box.payment_id)))
+        }
+      }
+    )
+  }
+
+  def deleteBoxJson(id:Long) = Action { implicit  request =>
+
+    boxRepo.delete(id)
+    Ok("Deleted product.")
   }
 
 }

@@ -7,7 +7,7 @@ import play.api.data.Forms._
 import play.api.mvc._
 import play.api.data.format.Formats._
 import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
-
+import play.api.libs.json._
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -139,6 +139,59 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
     Redirect("/products")
   }
 
+
+  //JSONS
+
+  def getProductsJson() = Action.async{implicit request  =>
+  val products = productsRepo.list()
+  products.map(products => Ok(Json.toJson(products.toArray)))
+  }
+
+
+  def getProductJson(id: Long) = Action.async({ implicit  request =>
+    val product = productsRepo.getById(id)
+    product.map(product => Ok(Json.toJson(product)))
+
+  })
+
+
+  def addProductJson() = Action.async { implicit  request =>
+    productForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      product => {
+        productsRepo.create(product.name, product.description, product.price, product.category, product.manufacturer).map { product =>
+          Ok(Json.toJson(product))
+        }
+      }
+    )
+
+  }
+
+  def updateProductJson(id: Long) = Action.async { implicit  request =>
+
+    updateProductForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      product => {
+        productsRepo.update(id, Product(id, product.name, product.description, product.price, product.category, product.manufacturer)).map { _ =>
+          Ok(Json.toJson(Product(id, product.name, product.description, product.price, product.category, product.manufacturer)))
+        }
+      }
+    )
+  }
+
+  def deleteProductJson(id:Long) = Action { implicit  request =>
+
+    productsRepo.delete(id)
+    Ok("Deleted product.")
+  }
 }
 
 case class CreateProductForm(name:String,description: String, price: Double, category: Int, manufacturer: Int)

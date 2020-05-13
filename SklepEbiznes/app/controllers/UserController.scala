@@ -9,7 +9,9 @@ import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
 import play.api.data.format.Formats._
+import play.api.libs.json._
 import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
+
 
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
@@ -103,6 +105,60 @@ class UserController @Inject()( userRepo: UserRepository, cc: MessagesController
   def delete(id: Long): Action[AnyContent] = Action {
     userRepo.delete(id)
     Redirect("/users")
+  }
+
+//  JSONS
+
+  def getUsersJson() = Action.async{implicit request  =>
+    val users = userRepo.list()
+    users.map(user => Ok(Json.toJson(user.toArray)))
+  }
+
+
+
+  def getUserJson(id: Long) = Action.async({ implicit  request =>
+    val user = userRepo.getById(id)
+    user.map(user => Ok(Json.toJson(user)))
+
+  })
+
+
+  def addUserJson() = Action.async { implicit  request =>
+    userForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      user => {
+        userRepo.create(user.email,user.password,user.reset_question,user.reset_answer,user.created_at,user.updated_at,user.is_admin).map { user =>
+          Ok(Json.toJson(user))
+        }
+      }
+    )
+
+  }
+
+  def updateUserJson(id: Long) = Action.async { implicit  request =>
+
+    updateUserForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      user => {
+        userRepo.update(id, User(id,user.email,user.password,user.reset_question,user.reset_answer,user.created_at,user.updated_at,user.is_admin)).map { _ =>
+          Ok(Json.toJson(User(id,user.email,user.password,user.reset_question,user.reset_answer,user.created_at,user.updated_at,user.is_admin)))
+        }
+      }
+    )
+  }
+
+  def deleteUserJson(id:Long) = Action { implicit  request =>
+
+    userRepo.delete(id)
+    Ok("Deleted product.")
   }
 
 }

@@ -9,7 +9,7 @@ import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
 
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
-
+import play.api.libs.json._
 
 @Singleton
 class FavoriteLineController @Inject()(favoriteLineRepo: FavoriteLineRepository, productRepo:ProductRepository,favoriteRepo:FavoriteRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
@@ -136,6 +136,57 @@ class FavoriteLineController @Inject()(favoriteLineRepo: FavoriteLineRepository,
     Redirect("/favlines")
   }
 
+  //JSONS
+  def getFavoriteLinesJson() = Action.async{implicit request  =>
+    val favoriteL = favoriteRepo.list()
+    favoriteL.map(favL => Ok(Json.toJson(favL.toArray)))
+  }
+
+
+  def getFavoriteLineJson(id: Long) = Action.async({ implicit  request =>
+    val favoriteL = favoriteLineRepo.getById(id)
+    favoriteL.map(fav => Ok(Json.toJson(fav)))
+
+  })
+
+
+  def addFavoriteLineJson() = Action.async { implicit  request =>
+    favLineForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      favL => {
+        favoriteLineRepo.create(favL.product_name,favL.product_id,favL.favorite_id).map { product =>
+          Ok(Json.toJson(product))
+        }
+      }
+    )
+
+  }
+
+  def updateFavoriteLineJson(id: Long) = Action.async { implicit  request =>
+
+    updateFavLineForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      favL => {
+        favoriteLineRepo.update(id, FavoriteLine(id,favL.product_name,favL.product_id,favL.favorite_id)).map { _ =>
+          Ok(Json.toJson(FavoriteLine(id, favL.product_name,favL.product_id,favL.favorite_id)))
+        }
+      }
+    )
+  }
+
+  def deleteFavoriteLineJson(id:Long) = Action { implicit  request =>
+
+    favoriteLineRepo.delete(id)
+    Ok("Deleted product.")
+  }
 }
 
 case class CreateFavoriteLineForm( product_name:String, product_id: Long, favorite_id:Long)

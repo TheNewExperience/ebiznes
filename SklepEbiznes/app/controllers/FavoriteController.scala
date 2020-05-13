@@ -6,7 +6,7 @@ import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
 import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
-
+import play.api.libs.json._
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -111,6 +111,60 @@ class FavoriteController @Inject()(userRepo: UserRepository, favoriteRepo: Favor
   def delete(id: Long): Action[AnyContent] = Action {
     favoriteRepo.delete(id)
     Redirect("/favorites")
+  }
+
+
+    //JSONS
+
+  def getFavoritesJson() = Action.async{implicit request  =>
+    val favorites = favoriteRepo.list()
+    favorites.map(fav => Ok(Json.toJson(fav.toArray)))
+  }
+
+
+  def getFavoriteJson(id: Long) = Action.async({ implicit  request =>
+    val favorite = favoriteRepo.getById(id)
+    favorite.map(fav => Ok(Json.toJson(fav)))
+
+  })
+
+
+  def addFavoriteJson() = Action.async { implicit  request =>
+    favoriteForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      fav => {
+        favoriteRepo.create(fav.user_id).map { fav =>
+          Ok(Json.toJson(fav))
+        }
+      }
+    )
+
+  }
+
+  def updateFavoriteJson(id: Long) = Action.async { implicit  request =>
+
+    updateFavoriteForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      fav => {
+        favoriteRepo.update(id, Favorite(id, fav.user_id)).map { _ =>
+          Ok(Json.toJson(Favorite(id, fav.user_id)))
+        }
+      }
+    )
+  }
+
+  def deleteFavoriteJson(id:Long) = Action { implicit  request =>
+
+    favoriteRepo.delete(id)
+    Ok("Deleted product.")
   }
 
 }

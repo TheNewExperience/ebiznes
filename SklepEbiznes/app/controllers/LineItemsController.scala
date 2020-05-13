@@ -12,7 +12,7 @@ import play.api.mvc.{MessagesAbstractController, MessagesControllerComponents}
 
 import scala.util.{Failure, Success}
 import scala.concurrent.{ExecutionContext, Future}
-
+import play.api.libs.json._
 
 @Singleton
 class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:BillRepository,productRepo:ProductRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
@@ -145,6 +145,59 @@ class LineItemsController @Inject()(lineItRepo:LineItemsRepository, billRepo:Bil
   def delete(id: Long): Action[AnyContent] = Action {
     lineItRepo.delete(id)
     Redirect("/lines")
+  }
+
+  //JSONS
+
+  def getLinesItemsJson() = Action.async{implicit request  =>
+    val linesItems = lineItRepo.list()
+    linesItems.map(linIt => Ok(Json.toJson(linIt.toArray)))
+  }
+
+
+  def getLineItemsJson(id: Long) = Action.async({ implicit  request =>
+    val lineItem = lineItRepo.getById(id)
+    lineItem.map(lineIt => Ok(Json.toJson(lineIt)))
+
+  })
+
+
+  def addLineItemsJson() = Action.async { implicit  request =>
+    lineForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      lineIt => {
+        lineItRepo.create(lineIt.is_billed,lineIt.unit_price,lineIt.quantity,lineIt.item_name,lineIt.price,lineIt.product_id,lineIt.bill_id).map { lineItem =>
+          Ok(Json.toJson(lineItem))
+        }
+      }
+    )
+
+  }
+
+  def updateLineItemsJson(id: Long) = Action.async { implicit  request =>
+
+    updateLineForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      lineIt => {
+        lineItRepo.update(id, LineItems(id, lineIt.is_billed,lineIt.unit_price,lineIt.quantity,lineIt.item_name,lineIt.price,lineIt.product_id,lineIt.bill_id)).map { _ =>
+          Ok(Json.toJson(LineItems(id, lineIt.is_billed,lineIt.unit_price,lineIt.quantity,lineIt.item_name,lineIt.price,lineIt.product_id,lineIt.bill_id)))
+        }
+      }
+    )
+  }
+
+  def deleteLineItemsJson(id:Long) = Action { implicit  request =>
+
+    lineItRepo.delete(id)
+    Ok("Deleted product.")
   }
 
 }

@@ -6,7 +6,7 @@ import models.{Category, CategoryRepository}
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
-
+import play.api.libs.json._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success}
 
@@ -96,6 +96,58 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
     )
   }
 
+  //JSONS
+
+  def getCategoriesJson() = Action.async{implicit request  =>
+    val categories = CategoryRepo.list()
+    categories.map(cat => Ok(Json.toJson(cat.toArray)))
+  }
+
+
+  def getCategoryJson(id: Int) = Action.async({ implicit  request =>
+    val category = CategoryRepo.getById(id)
+    category.map(cat => Ok(Json.toJson(cat)))
+
+  })
+
+
+  def addCategoryJson() = Action.async { implicit  request =>
+    categoryForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      category => {
+        CategoryRepo.create(category.name).map { cat =>
+          Ok(Json.toJson(cat))
+        }
+      }
+    )
+
+  }
+
+  def updateCategoryJson(id: Int) = Action.async { implicit  request =>
+
+    updateCategorForm.bindFromRequest().fold(
+      errorForm => {
+        Future.successful(
+          BadRequest("something went wrong please try again later")
+        )
+      },
+      category => {
+        CategoryRepo.update(id, Category(id, category.name)).map { _ =>
+          Ok(Json.toJson(Category(id, category.name)))
+        }
+      }
+    )
+  }
+
+  def deleteProductJson(id:Int) = Action { implicit  request =>
+
+    CategoryRepo.delete(id)
+    Ok("Deleted product.")
+  }
 
 
 }

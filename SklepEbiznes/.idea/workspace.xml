@@ -19,45 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c697cf36-8971-46d4-b91e-f568da27420b" name="Default Changelist" comment="added another models">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/BoxLineController.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/FavoriteLineController.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/BoxLine.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/BoxLineRepository.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/FavoriteLine.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/FavoriteLineRepository.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/boxline.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/boxlineadd.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/boxlines.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/boxlineupdate.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/favline.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/favlineadd.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/favlines.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/favlineupdate.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f6608d4-8c9c-4321-9992-881d5ac070ed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3f6608d4-8c9c-4321-9992-881d5ac070ed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SklepEbiznes-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SklepEbiznes-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SklepEbiznes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SklepEbiznes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c697cf36-8971-46d4-b91e-f568da27420b" name="Default Changelist" comment="added another models and updateed previous added models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BillController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BillController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/BoxController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BoxController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BoxLineController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BoxLineController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/CategoryController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CategoryController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/FavoriteController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/FavoriteController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Box.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Box.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/BoxRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BoxRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Favorite.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Favorite.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/FavoriteRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/FavoriteRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/box.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/box.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/boxadd.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/boxadd.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/boxupdate.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/boxupdate.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/favorite.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorite.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/favoriteadd.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favoriteadd.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/favorites.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorites.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/favoriteupdate.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favoriteupdate.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/evolutions.default/1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/evolutions.default/1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/FavoriteLineController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/FavoriteLineController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/LineItemsController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/LineItemsController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ManufacturerController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ManufacturerController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProductController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProductController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektEbiznes.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/projektEbiznes.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +64,11 @@
     </system>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Front" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
@@ -212,7 +193,9 @@
       <workItem from="1588861528065" duration="601000" />
       <workItem from="1588927403475" duration="848000" />
       <workItem from="1588944621228" duration="3362000" />
-      <workItem from="1589094334507" duration="11501000" />
+      <workItem from="1589094334507" duration="13676000" />
+      <workItem from="1589217259367" duration="4424000" />
+      <workItem from="1589300976624" duration="7486000" />
     </task>
     <task id="LOCAL-00001" summary="Added second model">
       <created>1588427613742</created>
@@ -263,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588706886048</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added another models and updateed previous added models">
+      <created>1589108968131</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589108968131</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,19 +277,20 @@
     <MESSAGE value="Added another models bill line items" />
     <MESSAGE value="Changed protection for fk keys" />
     <MESSAGE value="added another models" />
-    <option name="LAST_COMMIT_MESSAGE" value="added another models" />
+    <MESSAGE value="added another models and updateed previous added models" />
+    <option name="LAST_COMMIT_MESSAGE" value="added another models and updateed previous added models" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="178" key="#Intentions" timestamp="1588502445498">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="178" key="#Intentions/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588502445498" />
-    <state x="2544" y="211" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589105411788">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589312883039">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096538109" />
-    <state x="2544" y="211" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589105411788" />
-    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588704527507" />
+    <state x="2544" y="211" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589264075043" />
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589312883039" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588702844450">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -313,30 +304,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="411" y="163" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426949474" />
-    <state width="1877" height="116" key="GridCell.Tab.0.bottom" timestamp="1589108680668">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1589314235801">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
-    <state width="1877" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680668" />
-    <state width="1493" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588706869842" />
-    <state width="1877" height="116" key="GridCell.Tab.0.center" timestamp="1589108680667">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
+    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1589314235801">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
-    <state width="1877" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680667" />
-    <state width="1493" height="116" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588706869842" />
-    <state width="1877" height="116" key="GridCell.Tab.0.left" timestamp="1589108680667">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
+    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1589314235801">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294768" />
-    <state width="1877" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680667" />
-    <state width="1493" height="116" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588706869841" />
-    <state width="1877" height="116" key="GridCell.Tab.0.right" timestamp="1589108680667">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
+    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1589314235801">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
-    <state width="1877" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680667" />
-    <state width="1493" height="116" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588706869842" />
+    <state width="1877" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1588746155600">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -365,10 +356,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426933157" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1588706889981">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589108969886">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588625952328" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108969886" />
     <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588706889981" />
     <state x="349" y="67" key="com.intellij.database.dbimport.ImportDialog" timestamp="1589094717555">
       <screen x="0" y="0" width="1536" height="824" />
@@ -402,5 +393,9 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2536" y="240" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588625187920" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589263168258">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589263168258" />
   </component>
 </project>
