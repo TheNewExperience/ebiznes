@@ -1,0 +1,14 @@
+@(boxlines: Seq[BoxLine])
+
+@for(boxline  <- boxlines) {
+    <b>@boxline.box_id</b>
+    @boxline.unit_price
+    @boxline.quantity
+    @boxline.SumOfLine
+    @boxline.product_name
+
+
+    <a href="@controllers.routes.BoxLineController.updateBoxLine(boxline.id)">Edit</a>
+    <a href="@controllers.routes.BoxLineController.delete(boxline.id)">Delete</a>
+    <br>
+}

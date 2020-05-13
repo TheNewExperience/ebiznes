@@ -1,0 +1,28 @@
+@(favoriteLine: Form[CreateFavoriteLineForm],product: Seq[Product], favorite: Seq[Favorite])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.FavoriteLineController.addFavLineHandle()) {
+    @helper.CSRF.formField
+    @inputText(favoriteLine("product_name"))
+
+
+
+
+    <select name="product" id="product">
+    @for(ps <- product){
+        <option value="@ps.id_product">@ps.product_name</option>
+    }
+    </select>
+    <select name="favorite" id="favorite">
+    @for(fx <- favorite){
+        <option value="@fx.id">@fx.user_id</option>
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Add Fav Line"/>
+    </div>
+}

@@ -1,0 +1,27 @@
+@(box:Form[UpdateBoxForm],user: Seq[User],payment: Seq[Payment_method])(implicit request: MessagesRequestHeader,flash:Flash)
+
+@import helper._
+@flash.get("success").getOrElse("")
+    @form(routes.BoxController.updateBoxHandle()) {
+
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@box("id").value" type=""hidden/>
+    @inputText(box("sumOf"))
+
+
+    <select name="user" id="user">
+    @for(us <- user){
+        <option value="@us.id_user">@us.email</option>
+    }
+    </select>
+
+
+    <select name="payment" id="payment">
+    @for(pay <- payment){
+        <option value="@pay.id_payment_method">@pay.name</option>
+    }
+    </select>
+    <div class="buttons">
+        <input type="submit" value="Update Box"/>
+    </div>
+}

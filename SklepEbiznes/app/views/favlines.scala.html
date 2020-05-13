@@ -1,0 +1,12 @@
+@(favlines: Seq[FavoriteLine])
+
+@for(fline  <- favlines) {
+    <b>@fline.id</b>
+    @fline.product_name
+    @fline.product_id
+    @fline.favorite_id
+
+    <a href="@controllers.routes.FavoriteLineController.updateFavLine(fline.id)">Edit</a>
+    <a href="@controllers.routes.FavoriteLineController.delete(fline.id)">Delete</a>
+    <br>
+}

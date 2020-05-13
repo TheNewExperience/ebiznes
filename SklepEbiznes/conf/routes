@@ -1,0 +1,101 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /categories                 controllers.CategoryController.getCategories
+GET     /updatecategory/:id         controllers.CategoryController.updateCategory(id:Int)
+POST    /updatecategoryhandle       controllers.CategoryController.updateCategoryHandle
+GET     /deletecategory/:id         controllers.CategoryController.delete(id:Int)
+GET     /addcategory                controllers.CategoryController.addCategory
+GET     /category/:id               controllers.CategoryController.getCategory(id:Int)
+
+GET     /users                      controllers.UserController.getUsers
+GET     /updateuser/:id             controllers.UserController.updateUser(id:Long)
+POST    /updateuserhandle           controllers.UserController.updateUserHandle
+GET     /deleteuser/:id             controllers.UserController.delete(id:Long)
+GET     /adduser                    controllers.UserController.addUser
+GET     /user/:id                   controllers.UserController.getUser(id:Long)
+
+GET     /payments                   controllers.PaymentController.getPayments
+GET     /updatepayment/:id          controllers.PaymentController.updatePayment(id:Int)
+POST    /updatepaymenthandle        controllers.PaymentController.updatePaymentHandle
+GET     /deletepayment/:id          controllers.PaymentController.delete(id:Int)
+GET     /addpayment                 controllers.PaymentController.addPayment
+GET     /payment/:id                controllers.PaymentController.getPayment(id:Int)
+
+GET     /manufacturer/:id            controllers.ManufacturerController.getManufacturer(id:Int)
+GET     /manufacturers               controllers.ManufacturerController.getManufacturers
+GET     /updatemanufacturer/:id      controllers.ManufacturerController.updateManufacturer(id:Int)
+POST    /updatemanufacturerhandle    controllers.ManufacturerController.updateManufacturerHandle
+GET     /deletemanufacturer/:id      controllers.ManufacturerController.delete(id:Int)
+GET     /addmanufacturer             controllers.ManufacturerController.addManufacturer
+
+GET     /product/:id                 controllers.ProductController.getProduct(id:Long)
+GET     /products                    controllers.ProductController.getProducts
+GET     /updateproduct/:id           controllers.ProductController.updateProduct(id:Long)
+POST    /updateproducthandle         controllers.ProductController.updateProductHandle
+GET     /deleteproduct/:id           controllers.ProductController.delete(id:Long)
+GET     /addproduct                  controllers.ProductController.addProduct
+POST    /addproducthandle            controllers.ProductController.addProductHandle
+
+GET     /bill/:id                 controllers.BillController.getBill(id:Long)
+GET     /bills                    controllers.BillController.getBills
+GET     /updatebill/:id           controllers.BillController.updateBill(id:Long)
+POST    /updatebillhandle         controllers.BillController.updateBillHandle
+GET     /deletebill/:id           controllers.BillController.delete(id:Long)
+GET     /addbill                  controllers.BillController.addBill
+POST    /addbillhandle            controllers.BillController.addBillHandle
+
+GET     /favorite/:id             controllers.FavoriteController.getFavorite(id:Long)
+GET     /favorites                controllers.FavoriteController.getFavorites
+GET     /updatefavorite/:id       controllers.FavoriteController.updateFavorite(id:Long)
+POST    /updatefavoritehandle     controllers.FavoriteController.updateFavoriteHandle
+GET     /deletefavorite/:id       controllers.FavoriteController.delete(id:Long)
+GET     /addfavorite              controllers.FavoriteController.addFavorite
+POST    /addfavoritehandle        controllers.FavoriteController.addFavoriteHandle
+
+GET     /line/:id                 controllers.LineItemsController.getById(id: Long)
+GET     /lines                    controllers.LineItemsController.getLineItems
+GET     /updateline/:id           controllers.LineItemsController.updateLine(id:Long)
+POST    /updatelinehandle         controllers.LineItemsController.updateLineHandle
+GET     /deleteline/:id           controllers.LineItemsController.delete(id:Long)
+GET     /addline                  controllers.LineItemsController.addLine
+POST    /addlinehandle            controllers.LineItemsController.addLineHandle
+
+GET     /box/:id                  controllers.BoxController.getBox(id:Long)
+GET     /boxes                    controllers.BoxController.getBoxes
+GET     /updatebox/:id            controllers.BoxController.updateBox(id:Long)
+POST    /updateboxhandle          controllers.BoxController.updateBoxHandle
+GET     /deletebox/:id            controllers.BoxController.delete(id:Long)
+GET     /addbox                   controllers.BoxController.addBox
+POST    /addboxhandle             controllers.BoxController.addBoxHandle
+
+GET     /boxline/:id                 controllers.BoxLineController.getById(id: Long)
+GET     /boxlines                    controllers.BoxLineController.getBoxLines
+GET     /updateboxline/:id           controllers.BoxLineController.updateBoxLine(id:Long)
+POST    /updateboxlinehandle         controllers.BoxLineController.updateBoxLineHandle
+GET     /deleteboxline/:id           controllers.BoxLineController.delete(id:Long)
+GET     /addboxline                  controllers.BoxLineController.addBoxLine
+POST    /addboxlinehandle            controllers.BoxLineController.addBoxLineHandle
+
+GET     /favline/:id                 controllers.FavoriteLineController.getById(id: Long)
+GET     /favlines                    controllers.FavoriteLineController.getFavLines
+GET     /updatefavline/:id           controllers.FavoriteLineController.updateFavLine(id:Long)
+POST    /updatefavlinehandle         controllers.FavoriteLineController.updateFavLineHandle
+GET     /deletefavline/:id           controllers.FavoriteLineController.delete(id:Long)
+GET     /addfavline                  controllers.FavoriteLineController.addFavLine
+POST    /addfavlinehandle            controllers.FavoriteLineController.addFavLineHandle
+
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+      

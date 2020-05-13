@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c697cf36-8971-46d4-b91e-f568da27420b" name="Default Changelist" comment="added another models">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/BoxLineController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/FavoriteLineController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/BoxLine.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/BoxLineRepository.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/FavoriteLine.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/FavoriteLineRepository.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/boxline.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/boxlineadd.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/boxlines.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/boxlineupdate.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/favline.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/favlineadd.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/favlines.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/favlineupdate.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f6608d4-8c9c-4321-9992-881d5ac070ed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3f6608d4-8c9c-4321-9992-881d5ac070ed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SklepEbiznes-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SklepEbiznes-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SklepEbiznes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SklepEbiznes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BoxController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BoxController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/FavoriteController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/FavoriteController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Box.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Box.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/BoxRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BoxRepository.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Favorite.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Favorite.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/FavoriteRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/FavoriteRepository.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/box.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/box.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/boxadd.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/boxadd.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/boxupdate.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/boxupdate.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/favorite.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorite.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/favoriteadd.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favoriteadd.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/favorites.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorites.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/favoriteupdate.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favoriteupdate.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/evolutions.default/1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/evolutions.default/1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektEbiznes.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/projektEbiznes.sqlite" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="SBT">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="Play2ProjectSettings">
+    <option name="LANGUAGE_IMPORTS">
+      <array>
+        <option value="_root_.play.twirl.api.Txt" />
+        <option value="play.api.templates.PlayMagic._" />
+        <option value="_root_.play.twirl.api.JavaScript" />
+        <option value="_root_.play.twirl.api.Xml" />
+        <option value="_root_.play.twirl.api.Html" />
+        <option value="_root_.play.twirl.api.TwirlHelperImports._" />
+        <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
+      </array>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1bM07IP6YxC5uZx0cAl3qLP7r0D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="models" />
+      <recent name="controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Studia UJ\Ebiznes Ćwiczenia\ebiznes\SklepEbiznes\app\views" />
+      <recent name="E:\Studia UJ\Ebiznes Ćwiczenia\ebiznes\SklepEbiznes\app\controllers" />
+      <recent name="E:\Studia UJ\Ebiznes Ćwiczenia\SklepEbiznes\app\views" />
+      <recent name="E:\Studia UJ\Ebiznes Ćwiczenia\SklepEbiznes\app\controllers" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="SklepEbiznes" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="enableSbtGlobalPlugins" value="false" />
+      <option name="play2EnvVariables">
+        <map />
+      </option>
+      <option name="play2IsNonDefaultInstallDirUsed" value="false" />
+      <option name="play2JpdaPort" value="9999" />
+      <option name="play2JvmOptions">
+        <array>
+          <option value="-Xms512M" />
+          <option value="-Xmx1024M" />
+          <option value="-Xss1M" />
+          <option value="-XX:+CMSClassUnloadingEnabled" />
+          <option value="-XX:MaxPermSize=256M" />
+        </array>
+      </option>
+      <option name="play2NeedOpenInBrowser" value="true" />
+      <option name="play2NonDefaultInstallDir" value="" />
+      <option name="play2OpenUrl" value="http://localhost:8080" />
+      <option name="play2isAutoReloadEnabled" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="enableSbtGlobalPlugins" value="false" />
+      <option name="play2EnvVariables">
+        <map />
+      </option>
+      <option name="play2IsNonDefaultInstallDirUsed" value="false" />
+      <option name="play2JpdaPort" value="9999" />
+      <option name="play2JvmOptions">
+        <array>
+          <option value="-Xms512M" />
+          <option value="-Xmx1024M" />
+          <option value="-Xss1M" />
+          <option value="-XX:+CMSClassUnloadingEnabled" />
+          <option value="-XX:MaxPermSize=256M" />
+        </array>
+      </option>
+      <option name="play2NeedOpenInBrowser" value="true" />
+      <option name="play2NonDefaultInstallDir" value="" />
+      <option name="play2OpenUrl" value="http://localhost:9000" />
+      <option name="play2isAutoReloadEnabled" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c697cf36-8971-46d4-b91e-f568da27420b" name="Default Changelist" comment="" />
+      <created>1588426486612</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588426486612</updated>
+      <workItem from="1588426513107" duration="53000" />
+      <workItem from="1588426641900" duration="1574000" />
+      <workItem from="1588442512880" duration="4364000" />
+      <workItem from="1588485318542" duration="34109000" />
+      <workItem from="1588536937429" duration="28000" />
+      <workItem from="1588573911738" duration="4505000" />
+      <workItem from="1588613411539" duration="12423000" />
+      <workItem from="1588678859749" duration="2362000" />
+      <workItem from="1588686206792" duration="3187000" />
+      <workItem from="1588700397848" duration="1730000" />
+      <workItem from="1588702368588" duration="331000" />
+      <workItem from="1588702742956" duration="4408000" />
+      <workItem from="1588861528065" duration="601000" />
+      <workItem from="1588927403475" duration="848000" />
+      <workItem from="1588944621228" duration="3362000" />
+      <workItem from="1589094334507" duration="11501000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added second model">
+      <created>1588427613742</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588427613742</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added another model">
+      <created>1588512631602</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588512631602</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added another model">
+      <created>1588534425116</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588534425116</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added another model">
+      <created>1588536751374</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588536751374</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added another models bill line items">
+      <created>1588623325243</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588623325243</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changed protection for fk keys">
+      <created>1588625950882</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588625950882</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added another models">
+      <created>1588706886048</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588706886048</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added second model" />
+    <MESSAGE value="Added another model" />
+    <MESSAGE value="Added another models bill line items" />
+    <MESSAGE value="Changed protection for fk keys" />
+    <MESSAGE value="added another models" />
+    <option name="LAST_COMMIT_MESSAGE" value="added another models" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2472" y="178" key="#Intentions" timestamp="1588502445498">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="178" key="#Intentions/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588502445498" />
+    <state x="2544" y="211" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589105411788">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096538109" />
+    <state x="2544" y="211" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589105411788" />
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588704527507" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588702844450">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426954022" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588702844450" />
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588426521888">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426521888" />
+    <state x="411" y="163" key="FileChooserDialogImpl" timestamp="1588426949474">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="411" y="163" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426949474" />
+    <state width="1877" height="116" key="GridCell.Tab.0.bottom" timestamp="1589108680668">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
+    <state width="1877" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680668" />
+    <state width="1493" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588706869842" />
+    <state width="1877" height="116" key="GridCell.Tab.0.center" timestamp="1589108680667">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
+    <state width="1877" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680667" />
+    <state width="1493" height="116" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588706869842" />
+    <state width="1877" height="116" key="GridCell.Tab.0.left" timestamp="1589108680667">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294768" />
+    <state width="1877" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680667" />
+    <state width="1493" height="116" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588706869841" />
+    <state width="1877" height="116" key="GridCell.Tab.0.right" timestamp="1589108680667">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
+    <state width="1877" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589108680667" />
+    <state width="1493" height="116" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588706869842" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1588746155600">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588746155600" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588536896051" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588702926947" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1588746155600">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588746155600" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588536896050" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588702926947" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1588746155600">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588746155600" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588536896050" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588702926947" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1588746155600">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588746155600" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588536896050" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588702926947" />
+    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1588426933157">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426933157" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1588706889981">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588625952328" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588706889981" />
+    <state x="349" y="67" key="com.intellij.database.dbimport.ImportDialog" timestamp="1589094717555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="67" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589094717555" />
+    <state x="1920" y="1" width="504" height="431" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1589105545220">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="1" width="504" height="431" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589095529387" />
+    <state x="1920" y="1" width="504" height="439" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589105545220" />
+    <state x="0" y="1" width="403" height="354" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824@0.0.1536.824" timestamp="1588703719319" />
+    <state x="359" y="0" width="694" height="530" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589095581009">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="359" y="0" width="694" height="530" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589095581009" />
+    <state x="1946" y="57" width="1062" height="614" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588689179868" />
+    <state x="634" y="228" width="694" height="371" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1588703707070" />
+    <state x="2434" y="249" width="891" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1588511624725">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2434" y="249" width="891" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588511624725" />
+    <state x="2702" y="221" width="729" height="592" key="find.popup" timestamp="1588535672278">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2702" y="221" width="729" height="592" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588535672278" />
+    <state x="209" y="96" key="new project wizard" timestamp="1588942637269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="96" key="new project wizard/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588942637269" />
+    <state x="2536" y="240" key="run.anything.popup" timestamp="1588625187920">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2536" y="240" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588625187920" />
+  </component>
+</project>
