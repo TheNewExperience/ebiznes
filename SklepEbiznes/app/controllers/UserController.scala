@@ -131,8 +131,8 @@ class UserController @Inject()( userRepo: UserRepository, cc: MessagesController
         )
       },
       user => {
-        userRepo.create(user.email,user.password,user.reset_question,user.reset_answer,user.created_at,user.updated_at,user.is_admin).map { user =>
-          Ok(Json.toJson(user))
+        userRepo.create(user.email,user.password,user.reset_question,user.reset_answer,user.created_at,user.updated_at,user.is_admin).map { use =>
+          Ok(Json.toJson(use))
         }
       }
     )

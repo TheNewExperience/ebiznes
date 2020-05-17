@@ -94,9 +94,9 @@ POST    /addfavlinehandle            controllers.FavoriteLineController.addFavLi
 
 # JSONS
 
-GET     /categoryjson/:id               controllers.CategoryController.getCategory(id: Int)
-PUT     /updatecategoryjson/:id         controllers.CategoryController.updateCategory(id:Int)
-DELETE  /deletecategoryjson/:id         controllers.CategoryController.updateCategoryJson(id:Int)
+GET     /categoryjson/:id               controllers.CategoryController.getCategoryJson(id: Int)
+PUT     /updatecategoryjson/:id         controllers.CategoryController.updateCategoryJson(id:Int)
+DELETE  /deletecategoryjson/:id         controllers.CategoryController.deleteCategoryJson(id:Int)
 POST    /addcategoryjson                controllers.CategoryController.addCategoryJson()
 GET     /categoriesjson                 controllers.CategoryController.getCategoriesJson()
 
@@ -154,6 +154,11 @@ DELETE  /deleteuserjson/:id         controllers.UserController.deleteUserJson(id
 POST    /adduserjson                controllers.UserController.addUserJson()
 GET     /usersjson                  controllers.UserController.getUsersJson()
 
+GET     /paymentjson/:id               controllers.PaymentController.getPaymentJson(id: Int)
+PUT     /updatepaymentjson/:id         controllers.PaymentController.updatePaymentJson(id:Int)
+DELETE  /deletpaymentjson/:id         controllers.PaymentController.deletePaymentJson(id:Int)
+POST    /addpaymentjson                controllers.PaymentController.addPaymentJson()
+GET     /paymentsjson                  controllers.PaymentController.getPaymentsJson()
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message

@@ -100,7 +100,7 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
 
   def getCategoriesJson() = Action.async{implicit request  =>
     val categories = CategoryRepo.list()
-    categories.map(cat => Ok(Json.toJson(cat.toArray)))
+    categories.map(cat => Ok(Json.toJson(cat)))
   }
 
 
@@ -143,7 +143,7 @@ class CategoryController @Inject()(CategoryRepo: CategoryRepository, cc: Message
     )
   }
 
-  def deleteProductJson(id:Int) = Action { implicit  request =>
+  def deleteCategoryJson(id:Int) = Action { implicit  request =>
 
     CategoryRepo.delete(id)
     Ok("Deleted product.")

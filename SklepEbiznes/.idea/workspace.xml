@@ -20,20 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c697cf36-8971-46d4-b91e-f568da27420b" name="Default Changelist" comment="added another models and updateed previous added models">
+      <change afterPath="$PROJECT_DIR$/../front/src/components/Categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/CategoryForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/ManufacturerForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/Manufacturers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/PaymentForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/Payments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/Products.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/RegisterUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SklepEbiznes-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SklepEbiznes-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SklepEbiznes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SklepEbiznes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BillController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BillController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BoxController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BoxController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BoxLineController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BoxLineController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/CategoryController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CategoryController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/FavoriteController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/FavoriteController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/FavoriteLineController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/FavoriteLineController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/LineItemsController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/LineItemsController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ManufacturerController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ManufacturerController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProductController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProductController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektEbiznes.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/projektEbiznes.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +65,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SklepEbiznes" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -101,7 +115,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -196,6 +210,11 @@
       <workItem from="1589094334507" duration="13676000" />
       <workItem from="1589217259367" duration="4424000" />
       <workItem from="1589300976624" duration="7486000" />
+      <workItem from="1589484176737" duration="3158000" />
+      <workItem from="1589535913725" duration="2830000" />
+      <workItem from="1589540520577" duration="1161000" />
+      <workItem from="1589541703538" duration="7638000" />
+      <workItem from="1589629153779" duration="7463000" />
     </task>
     <task id="LOCAL-00001" summary="Added second model">
       <created>1588427613742</created>
@@ -285,10 +304,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="178" key="#Intentions/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588502445498" />
-    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589312883039">
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589724017643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096538109" />
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589724017643" />
     <state x="2544" y="211" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589264075043" />
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589312883039" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588702844450">
@@ -300,33 +319,33 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426521888" />
-    <state x="411" y="163" key="FileChooserDialogImpl" timestamp="1588426949474">
+    <state x="411" y="163" key="FileChooserDialogImpl" timestamp="1589538804799">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="411" y="163" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588426949474" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1589314235801">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="411" y="163" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589538804799" />
+    <state width="1877" height="225" key="GridCell.Tab.0.bottom" timestamp="1589724565405">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
-    <state width="1877" height="116" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="745" height="167" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589713503820" />
+    <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589724565405" />
     <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1589314235801">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.center" timestamp="1589724565405">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
-    <state width="1877" height="116" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="745" height="167" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589713503819" />
+    <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589724565405" />
     <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1589314235801">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.left" timestamp="1589724565405">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294768" />
-    <state width="1877" height="116" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="745" height="167" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589713503819" />
+    <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589724565405" />
     <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1589314235801">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.right" timestamp="1589724565405">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589096294769" />
-    <state width="1877" height="116" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589265972494" />
+    <state width="745" height="167" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589713503820" />
+    <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589724565405" />
     <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589314235801" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1588746155600">
       <screen x="0" y="0" width="1536" height="824" />
@@ -377,6 +396,10 @@
     <state x="359" y="0" width="694" height="530" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589095581009" />
     <state x="1946" y="57" width="1062" height="614" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588689179868" />
     <state x="634" y="228" width="694" height="371" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1588703707070" />
+    <state x="380" y="91" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589709064040">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="380" y="91" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589709064040" />
     <state x="2434" y="249" width="891" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1588511624725">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

@@ -97,7 +97,7 @@ class PaymentController @Inject()(PaymentRepo: PaymentMethodRepository, cc: Mess
 
   //JSONS
 
-  def getPaymentJson() = Action.async{implicit request  =>
+  def getPaymentsJson() = Action.async{implicit request  =>
     val payments = PaymentRepo.list()
     payments.map(paym => Ok(Json.toJson(paym.toArray)))
   }
@@ -147,7 +147,6 @@ class PaymentController @Inject()(PaymentRepo: PaymentMethodRepository, cc: Mess
     PaymentRepo.delete(id)
     Ok("Deleted product.")
   }
-
 
 
 }
